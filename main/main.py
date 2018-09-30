@@ -2,4 +2,4 @@
 from pic2word import pic2word
 import sys
 locatioin='../res/Capture.JPG'
-print(pic2word(locatioin))
+print(pic2word(locatioin).decode('utf-8').encode(sys.getfilesystemencoding()))
