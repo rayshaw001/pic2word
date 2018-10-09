@@ -1,4 +1,4 @@
-# encoding:utf-8
+#coding=utf-8
 '''
 操作剪切板：读取剪切板的字符串;清空剪切板;向剪切板中写入字符串（只能写入 ascii 字符）。
 win10, python3, 

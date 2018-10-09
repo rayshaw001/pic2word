@@ -1,4 +1,4 @@
-# encoding:utf-8
+#coding=utf-8
 import urllib, urllib2, base64
 import os
 import json
@@ -10,6 +10,7 @@ def pic2word(pic_location):
     keyFile=open('../res/keys.properties','r')
     for line in keyFile:
         key.update({line.split('=')[0]:line.split('=')[1]})
+    keyFile.close()
     access_token=getToken(key["APIKey"].strip('\n'),key["SecretKey"].strip('\n'))
     url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token=' + json.loads(access_token)['access_token']
     # 二进制方式打开图文件
