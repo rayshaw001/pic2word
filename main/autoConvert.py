@@ -18,7 +18,6 @@ if __name__=="__main__":
         while True:
             picture=ig.grabclipboard()
             if image.isImageType(picture):
-                
                 buffer = cStringIO.StringIO()
                 picture.save(buffer, format="JPEG")
                 result=picture2words(buffer.getvalue())
@@ -28,6 +27,6 @@ if __name__=="__main__":
                     result_str+=res["words"]
                 print(result_str)
                 clipboard.copy(result_str)
-            time.sleep(2)
+            time.sleep(1)
     except KeyboardInterrupt:
         exit()
