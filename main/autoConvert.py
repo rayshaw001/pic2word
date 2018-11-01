@@ -6,6 +6,7 @@ import clipboard
 from PIL import ImageGrab as ig;
 from PIL import Image as image; 
 import cStringIO
+import sys
 
 if __name__=="__main__":
     key=dict()
@@ -13,7 +14,9 @@ if __name__=="__main__":
     for line in settings:
         key.update({line.split('=')[0]:line.split('=')[1]})
     settings.close()
-
+    
+    reload(sys)  
+    sys.setdefaultencoding('utf8')   
     try:
         while True:
             picture=ig.grabclipboard()
@@ -22,10 +25,10 @@ if __name__=="__main__":
                 picture.save(buffer, format="JPEG")
                 result=picture2words(buffer.getvalue())
                 result_str=u"".encode("UTF-8")
-                print(result)
+                #print(result)
                 for res in json.loads(result)["words_result"]:
                     result_str+=res["words"]
-                print(result_str)
+                #print(result_str)
                 clipboard.copy(result_str)
             time.sleep(1)
     except KeyboardInterrupt:
